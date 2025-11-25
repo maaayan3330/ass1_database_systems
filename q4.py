@@ -12,7 +12,18 @@ if __name__ == "__main__":
     cursor = mydb.cursor()
 
     cursor.execute("""
-        PUT_YOUR_QUERY
+        SELECT COUNT(*) AS wins_2001
+        FROM winners
+        WHERE YEAR(Date) = 2001
+        AND Car = (
+                SELECT Car
+                FROM winners
+                WHERE YEAR(Date) = 1999
+                GROUP BY Car
+                ORDER BY COUNT(*) DESC
+                LIMIT 1
+    );
+
     """)
 
     print(', '.join(str(row) for row in cursor.fetchall()))
