@@ -12,7 +12,7 @@ if __name__ == "__main__":
     cursor = mydb.cursor()
 
     cursor.execute("""
-        PUT_YOUR_QUERY
+        
     """)
 
     print(', '.join(str(row) for row in cursor.fetchall()))
