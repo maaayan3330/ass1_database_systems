@@ -10,7 +10,7 @@ if __name__ == "__main__":
     )
 
     cursor = mydb.cursor()
-
+    # We filter by Nationality = 'ITA' and select only Driver names.
     cursor.execute("""
         SELECT DISTINCT Driver
         FROM drivers_updated
