@@ -11,6 +11,9 @@ if __name__ == "__main__":
 
     cursor = mydb.cursor()
 
+    # first i do the first SELECT for find how mach races where won in 2001 but i miss the info
+    # of who is the currect CAR so i did another SELECT that return a CAR and then the
+    # first SELECT can answer the Q 
     cursor.execute("""
         SELECT COUNT(*) AS wins_2001
         FROM winners
