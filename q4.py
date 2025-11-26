@@ -26,7 +26,6 @@ if __name__ == "__main__":
                 ORDER BY COUNT(*) DESC
                 LIMIT 1
     );
-
     """)
 
     print(', '.join(str(row) for row in cursor.fetchall()))
