@@ -11,6 +11,10 @@ if __name__ == "__main__":
 
     cursor = mydb.cursor()
 
+    # First we calculate the average points for each nationality from the drivers table.
+    # Then we find the fastest recorded lap time for each nationality by matching drivers to their lap results.
+    # Finally, we get the most recent win date for each nationality and combine everything into one result.
+
     cursor.execute("""
         WITH avg_points AS (
         SELECT Nationality, AVG(PTS) AS avg_pts
@@ -29,7 +33,6 @@ if __name__ == "__main__":
         WHERE drivers_updated.Driver = winners.Winner
         GROUP BY drivers_updated.Nationality
         )
-
         SELECT avg_points.Nationality, avg_points.avg_pts, min_fastest.min_time, latest_win.latest
         FROM avg_points
         LEFT JOIN min_fastest USING (Nationality)
