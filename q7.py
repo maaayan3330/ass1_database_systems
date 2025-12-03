@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     cursor = mydb.cursor()
 
-    # # We pull Ferrari winners and all ARG drivers from two tables and just combine them
+    # We pull Ferrari winners and all ARG drivers from two tables and just combine them
     # with UNION. This gives us one clean list with no duplicates and sorted names.
     cursor.execute("""
         (
